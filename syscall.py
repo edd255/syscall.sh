@@ -48,7 +48,8 @@ def handle_syscall() -> None:
                     map
                     for map in convention.ok()
                     if "arch" in map and map["arch"] == args.arch.value
-                )
+                ),
+                None
             )
             pretty_print_json(syscall_of_arch)
         case False:
