@@ -51,6 +51,9 @@ def handle_syscall() -> None:
                 ),
                 None
             )
+            if syscall_of_arch is None:
+                logger.error(f"{args.arch.value} has no syscall '{args.syscall}'")
+                return
             pretty_print_json(syscall_of_arch)
         case False:
             logger.error(f"Request failed with status code {convention.err()}")
